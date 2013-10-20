@@ -1,0 +1,3 @@
+module MyForwardable
+
+end
