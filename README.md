@@ -7,3 +7,5 @@ Can you create a module that behaves in a similar way?
 
 There is a simple spec provided that should help you know when you are
 done. Feel free to add any more specs that you think you need.
+
+[fwd]: http://ruby-doc.org/stdlib-2.0.0/libdoc/forwardable/rdoc/Forwardable.html
