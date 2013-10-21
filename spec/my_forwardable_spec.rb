@@ -21,6 +21,8 @@ describe MyForwardable do
   end
 
   class RecordCollection
+    extend MyForwardable
+
     attr_reader :records
 
     def_delegator  :records, :size
