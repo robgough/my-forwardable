@@ -1,19 +1,13 @@
 module MyForwardable
   def def_delegator(receiver, method_name, method_alias = method_name)
-    add_delegator(receiver, method_name, method_alias)
-  end
-
-  def def_delegators(receiver, *args)
-    args.each do |arg|
-      add_delegator(receiver, arg)
+    define_method(method_alias) do |*args, &block|
+      self.send(receiver).send(method_name, *args, &block)      
     end
   end
 
-  private 
-
-  def add_delegator(receiver, method_name, method_alias = method_name)
-    define_method(method_alias) do |*args, &block|
-      self.send(receiver).send(method_name, *args, &block)      
+  def def_delegators(receiver, *methods)
+    methods.each do |method|
+      def_delegator(receiver, method)
     end
   end
 end
