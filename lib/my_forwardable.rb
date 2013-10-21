@@ -13,7 +13,7 @@ module MyForwardable
 
   def add_delegator(receiver, method_name, method_alias = method_name)
     define_method(method_alias) do |*args, &block|
-      self.records.__send__(method_name, *args, &block)      
+      self.send(receiver).send(method_name, *args, &block)      
     end
   end
 end
